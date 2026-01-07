@@ -1,3 +1,3 @@
-# Prathish
+# riyas
 CSE student
 rohini clg
