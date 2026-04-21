@@ -1,2 +1,22 @@
-# Prathish
-CSE student
+name: Docker Install and Verify Lab
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  docker-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # This is the new part for your second question
+      - name: Verify Docker Installation
+        run: |
+          echo "Checking if Docker is installed..."
+          docker --version
+          docker info | grep "Server Version"
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag lab-two:latest
