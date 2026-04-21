@@ -1,15 +1,22 @@
-name: Docker Build Lab
+name: Docker Install and Verify Lab
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
+  docker-lab:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build . --file Dockerfile --tag my-lab-image:latest
+      # Lab 2: Verification Step
+      - name: Verify Docker Installation
+        run: |
+          echo "Checking if Docker is installed..."
+          docker --version
+          docker info | grep "Server Version"
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag lab-two:latest
