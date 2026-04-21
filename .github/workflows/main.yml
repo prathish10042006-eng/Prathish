@@ -11,15 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Lab 2: Verification Step
       - name: Verify Docker Installation
         run: |
           echo "Checking if Docker is installed..."
           docker --version
           docker info | grep "Server Version"
-
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag lab-two:latest
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag lab-two:latest
